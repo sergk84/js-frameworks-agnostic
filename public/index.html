@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+  </head>
+  <body ng-app="app">
+
+    <!-- Navigation Component -->
+    <mai-navigation></mai-navigation>
+
+    <div class="container">
+      <div ui-view></div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript" src="/js/lib/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/js/lib/angular/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/js/lib/angular/resource.js"></script>
+
+    <script type="text/javascript" src="/js/app/app.js"></script>
+
+    <script type="text/javascript" src="/js/app/services/customer.services.js"></script>
+    <script type="text/javascript" src="/js/app/services/product.services.js"></script>
+    <script type="text/javascript" src="/js/app/services/invoice.services.js"></script>
+    <script type="text/javascript" src="/js/app/services/invoiceItem.services.js"></script>
+
+    <script type="text/javascript" src="/js/app/components/navigation/navigation.component.js"></script>
+    <script type="text/javascript" src="/js/app/components/customers/customers.component.js"></script>
+    <script type="text/javascript" src="/js/app/components/products/products.component.js"></script>
+    <script type="text/javascript" src="/js/app/components/invoices/invoices.component.js"></script>
+    <script type="text/javascript" src="/js/app/components/editInvoice/editInvoice.component.js"></script>
+    <script type="text/javascript" src="/js/app/components/invoiceItems/invoiceItems.component.js"></script>
+  </body>
+</html>

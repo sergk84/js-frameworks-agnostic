@@ -1,0 +1,26 @@
+<form name="invoiceForm">
+
+    <div class="form-group">
+        <label for="customer_id">Customer</label>
+        <select id="customer_id" ng-model="invoiceItem.customer_id" class="form-control" required>
+            <option ng-repeat="item in customersList" ng-value="item.id">{{item.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="sr-only" for="discount">Discount</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="discount" ng-model="invoiceItem.discount" placeholder="Discount"
+                   min="0" max="100">
+            <div class="input-group-addon">%</div>
+        </div>
+    </div>
+
+
+</form>
+
+<div ng-if="invoiceItem.id">
+
+    <invoice-item invoice="invoiceItem"></invoice-item>
+
+</div>

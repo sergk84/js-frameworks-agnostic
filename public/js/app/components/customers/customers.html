@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>CreatedAt</th>
+        <th>UpdatedAt</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in dataList">
+        <th>{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.createdAt | date : 'MM/dd/yyyy HH:mm'}}</td>
+        <td>{{item.updatedAt | date : 'MM/dd/yyyy HH:mm'}}</td>
+    </tr>
+    <tr ng-hide="dataList.length > 0">
+        <th colspan="5" class="text-center">There are no entries yet</th>
+    </tr>
+    </tbody>
+</table>

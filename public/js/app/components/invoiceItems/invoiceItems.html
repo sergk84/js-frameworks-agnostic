@@ -1,0 +1,72 @@
+<hr>
+<h3>Invoice Items</h3>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in invoiceItems">
+        <th>{{item.id}}</th>
+        <td>
+            <div class="form-group">
+                <select ng-model="item.product_id" class="form-control" required>
+                    <option ng-repeat="item in productList" ng-value="item.id">{{item.name}}</option>
+                </select>
+            </div>
+        </td>
+        <td>
+            <div class="input-group">
+                <input type="number" class="form-control" ng-model="item.quantity" placeholder="Quantity"
+                       min="0" required>
+            </div>
+        </td>
+        <td class="text-right">{{item.itemPrice | currency}}</td>
+        <td class="text-right">
+            <a type="button" class="btn btn-danger btn-xs" ng-click="remove(item.id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove</a>
+        </td>
+    </tr>
+    <tr ng-if="newItem">
+        <td></td>
+        <td>
+            <div class="form-group">
+                <select ng-model="newItem.product_id" class="form-control" required>
+                    <option ng-repeat="item in productList" ng-value="item.id">{{item.name}}</option>
+                </select>
+            </div>
+        </td>
+        <td>
+            <div class="input-group">
+                <input type="number" class="form-control" ng-model="newItem.quantity" placeholder="Quantity"
+                       min="0" required>
+            </div>
+        </td>
+        <td class="text-right"></td>
+        <td></td>
+    </tr>
+    <tr ng-if="invoiceItems.length > 0">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="text-right">Total: {{invoice.total | currency}}</td>
+        <td></td>
+    </tr>
+    <tr ng-if="invoiceItems.length > 0 && invoice.discount">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="text-right">Total with Discount: {{invoice.total - ( (invoice.discount / 100) * invoice.total ) | number : 2 | currency}}</td>
+        <td></td>
+    </tr>
+    <tr ng-hide="invoiceItems.length > 0">
+        <th colspan="5" class="text-center">There are no entries yet</th>
+    </tr>
+    </tbody>
+</table>
+
+<a type="button" class="btn btn-success pull-right" ng-click="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
